@@ -1,7 +1,11 @@
-# infra-design-milestone-aaron
-# Infra module
+# Infra-design-milestone-aaron
+This repository contains Infrastructure as Code to deploy a complete Azure environment with networking, Linux VMs, and managed SQL databases using Terraform.
 
 This folder contains the Terraform configuration for the Azure infrastructure.
+
+## Architecture
+
+![Azure Infrastructure Architecture](docs/architecture.png)
 
 ## Local setup
 
@@ -41,6 +45,28 @@ terraform init
 terraform plan -out=tfplan
 terraform apply tfplan
 ```
+
+## Verify the deployment
+
+If the setup completed successfully, you should be able to:
+
+1. SSH into the VM
+```bash
+ssh -i ~/.ssh/id_rsa azureuser@<vm-public-ip>
+```
+
+2. Open the public IP address of the VM in your browser and see the default Nginx welcome page
+3. Confirm that the SQL private endpoint resolves correctly from the VM
+```bash
+nslookup <sql-server-name>.database.windows.net
+nc -vz <sql-server-name>.database.windows.net 1433
+```
+
+If everything is working correctly, the browser should show the Nginx default page, similar to this:
+
+![Nginx default page](docs/nginx.png)
+
+If you do not see the page, check that the VM is running, the public IP is correct, and the network security group allows inbound HTTP traffic.
 
 ## CI/CD setup
 
