@@ -116,7 +116,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   size                            = "Standard_D2as_v5"
   admin_username                  = "azureuser"
   disable_password_authentication = true 
-  custom_data                     = filebase64("${path.module}/init.sh")
+  custom_data                     = filebase64("${path.module}/../scripts/init.sh")
 
   admin_ssh_key {
     username   = "azureuser"

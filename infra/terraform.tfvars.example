@@ -1,0 +1,12 @@
+# Example terraform.tfvars (DO NOT COMMIT)
+# Copy this file to `terraform.tfvars` and fill in real values before running Terraform.
+
+# The SSH public key string (one-line, starts with "ssh-rsa" or similar)
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ... user@host"
+
+# Strong password for the SQL administrator (replace with a secure value)
+sql_admin_password = "REPLACE_WITH_STRONG_PASSWORD"
+
+# Optional overrides (these variables have defaults in the configs):
+# name = "capstone-aaron"
+# location = "Southeast Asia"

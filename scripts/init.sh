@@ -7,5 +7,3 @@ apt-get install -y nginx
 # Enable and start Nginx service
 systemctl enable nginx
 systemctl start nginx
-
-echo "Capstone completed!"
